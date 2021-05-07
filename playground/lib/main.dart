@@ -14,6 +14,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(
         primaryColor: Color(0xFF00c7f5),
         scaffoldBackgroundColor: Color(0xFFFFFFFF),
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
+          subtitle1: TextStyle(
+            fontSize: 16.0,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w500,
+            color: Colors.grey,
+          ),
+          bodyText2: TextStyle(
+            fontSize: 14.0,
+            color: Colors.black,
+          ),
+        ),
       ),
       initialRoute: '/',
       routes: {'/': (context) => Home()},
