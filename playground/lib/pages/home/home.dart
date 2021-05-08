@@ -1,9 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:playground/models/home.model.dart';
 
 import 'package:playground/widgets/appBar.dart';
 import 'package:playground/widgets/navDrawer.dart';
+
+final List<CardData> _cardData = [
+  CardData(
+    image: 'https://placeimg.com/640/480/nature',
+    title: "Product 1",
+    subTitle: "Super fancy things",
+    location: "Pretoria",
+  ),
+  CardData(
+    image: 'https://placeimg.com/640/480/sepia',
+    title: "Product 2",
+    subTitle: "Dull & boring things",
+    location: "Cape Town",
+  ),
+  CardData(
+    image: 'https://placeimg.com/640/480/animals',
+    title: "Product 3",
+    subTitle: "Okay things",
+    location: "Durban",
+  ),
+  CardData(
+    image: 'https://placeimg.com/640/480/tech',
+    title: "Product 4",
+    subTitle: "Interesting things",
+    location: "Ermelo",
+  ),
+  CardData(
+    image: 'https://placeimg.com/640/480/poeple',
+    title: "Product 5",
+    subTitle: "Nothings",
+    location: "Port Elizabeth",
+  ),
+];
 
 class Home extends StatelessWidget {
   @override
@@ -14,68 +48,65 @@ class Home extends StatelessWidget {
         title: 'Page Name',
         appBar: AppBar(),
       ),
-      body: Carousel(),
+      body: Column(
+        children: [
+          Carousel(),
+          ElevatedButton(
+            onPressed: () {
+              final snackBar = SnackBar(
+                content: Text('Yay! A SnackBar!'),
+                backgroundColor: Colors.green,
+                margin: EdgeInsets.all(8.0),
+                behavior: SnackBarBehavior.floating,
+                action: SnackBarAction(
+                  label: 'Okay',
+                  textColor: Colors.white,
+                  onPressed: () {
+                    // Some code to undo the change.
+                  },
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+            child: Text('Show SnackBar'),
+          ),
+        ],
+      ),
     );
   }
 }
 
 class Carousel extends StatelessWidget {
-  final List<CardData> _cardData = [
-    CardData(
-      image: 'https://placeimg.com/640/480/nature',
-      title: "Product 1",
-      subTitle: "Super fancy things",
-      location: "Pretoria",
-    ),
-    CardData(
-      image: 'https://placeimg.com/640/480/sepia',
-      title: "Product 2",
-      subTitle: "Dull & boring things",
-      location: "Cape Town",
-    ),
-    CardData(
-      image: 'https://placeimg.com/640/480/animals',
-      title: "Product 3",
-      subTitle: "Okay things",
-      location: "Durban",
-    ),
-    CardData(
-      image: 'https://placeimg.com/640/480/tech',
-      title: "Product 4",
-      subTitle: "Interesting things",
-      location: "Ermelo",
-    ),
-    CardData(
-      image: 'https://placeimg.com/640/480/poeple',
-      title: "Product 5",
-      subTitle: "Nothings",
-      location: "Port Elizabeth",
-    ),
-  ];
-
   Carousel({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16.0),
-      child: CarouselSlider(
-        options: CarouselOptions(
-          // enlargeCenterPage: true,
-          pageSnapping: false,
-          enableInfiniteScroll: false,
-          height: 380.0,
-        ),
-        items: _cardData.map((item) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Container(
-                child: CardWidget(item),
-              );
-            },
-          );
-        }).toList(),
+      margin: EdgeInsets.only(top: 16.0),
+      child: CarouselWidget(),
+    );
+  }
+}
+
+class CarouselWidget extends StatelessWidget {
+  CarouselWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      options: CarouselOptions(
+        enlargeCenterPage: true,
+        pageSnapping: false,
+        enableInfiniteScroll: false,
+        height: 380.0,
       ),
+      items: _cardData.map((item) {
+        return Builder(
+          builder: (BuildContext context) {
+            return CardWidget(item);
+          },
+        );
+      }).toList(),
     );
   }
 }
@@ -95,8 +126,14 @@ class CardWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          FittedBox(
-            child: Image.network(this.item.image),
+          Flexible(
+            child: FadeInImage.assetNetwork(
+              height: 480.0,
+              width: 640.0,
+              fit: BoxFit.none,
+              placeholder: 'assets/loader.gif', //kTransparentImage,
+              image: this.item.image,
+            ), //Image.network(this.item.image),
           ),
           Container(
             alignment: Alignment.topLeft,
@@ -130,9 +167,12 @@ class CardWidget extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.teal,
+                    Container(
+                      padding: EdgeInsets.only(right: 4.0),
+                      child: Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.teal,
+                      ),
                     ),
                     Expanded(
                       child: Text(

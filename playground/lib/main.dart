@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playground/pages/profile/profile.dart';
 
 import 'pages/home/home.dart';
 
@@ -26,14 +27,17 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w500,
             color: Colors.grey,
           ),
-          bodyText2: TextStyle(
-            fontSize: 14.0,
+          bodyText1: TextStyle(
+            fontSize: 20.0,
             color: Colors.black,
           ),
         ),
       ),
       initialRoute: '/',
-      routes: {'/': (context) => Home()},
+      routes: {
+        '/': (context) => Home(),
+        '/profile': (context) => Profile(),
+      },
     );
   }
 }

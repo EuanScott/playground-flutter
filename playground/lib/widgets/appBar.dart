@@ -1,34 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:playground/pages/profile/profile.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Color backgroundColor = Colors.white;
-  final Color textColor = Colors.black;
+  final Color backgroundColorPrimary = Colors.teal[400];
+  final Color backgroundColorSecondary = Colors.white;
+  final Color textColorPrimary = Colors.white;
+  final Color textColorSecondary = Colors.teal[400];
+
   final String title;
+  final bool isModal;
   final AppBar appBar;
 
-  /// you can add more fields that meet your needs
-
-  const BaseAppBar({Key key, this.title, this.appBar}) : super(key: key);
+  BaseAppBar({Key key, this.title, this.isModal = false, this.appBar})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
         title,
-        style: TextStyle(color: textColor),
+        style: TextStyle(
+          color: this.isModal ? textColorSecondary : textColorPrimary,
+        ),
       ),
-      iconTheme: IconThemeData(color: textColor),
+      leading: Builder(
+        builder: (BuildContext context) {
+          if (!isModal)
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          else
+            return IconButton(
+              icon: const Icon(Icons.close_outlined),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+        },
+      ),
+      iconTheme: IconThemeData(
+        color: this.isModal ? textColorSecondary : textColorPrimary,
+      ),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.person, color: textColor),
-          onPressed: () {
-            // do something
-            print('Open a new profile page');
-          },
-        )
+        if (!isModal)
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              color: this.isModal ? textColorSecondary : textColorPrimary,
+            ),
+            onPressed: () {
+              showCupertinoModalBottomSheet(
+                  expand: false,
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (context) => Profile());
+            },
+          )
       ],
-      backgroundColor: backgroundColor,
-      // flutterdrawer: NavDrawer()
+      backgroundColor:
+          this.isModal ? backgroundColorSecondary : backgroundColorPrimary,
     );
   }
 
