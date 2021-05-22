@@ -68,14 +68,20 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "flutter_svg",
-      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.22.0",
+      "name": "flutter_lorem",
+      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lorem-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "flutter_test",
       "rootUri": "file:///Users/euanscott/Development/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "ionicons",
+      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/ionicons-0.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -100,24 +106,6 @@
     {
       "name": "path",
       "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "path_drawing",
-      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.5.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "path_parsing",
-      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.2.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "petitparser",
-      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,19 +170,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "xml",
-      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "playground",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-05-08T15:15:35.520589Z",
+  "generated": "2021-05-22T10:21:57.345559Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }

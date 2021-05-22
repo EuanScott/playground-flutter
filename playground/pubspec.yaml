@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   carousel_slider: ^3.0.0
+  flutter_lorem: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -32,7 +33,7 @@ dependencies:
   transparent_image: ^2.0.0
   modal_bottom_sheet: ^2.0.0
   expansion_card: ^0.1.0
-  flutter_svg: ^0.22.0
+  ionicons: ^0.1.2
 
 dev_dependencies:
   flutter_test:

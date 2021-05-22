@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 import 'package:playground/models/profile.model.dart';
 
 import 'package:playground/widgets/card.dart';
-
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileData extends StatelessWidget {
   final _profileData = PersonalData(
@@ -55,38 +54,29 @@ class ProfileData extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: SvgPicture.asset(
-                            this._profileData.icons[0],
-                            color: Colors.black54,
-                            width: 26.0,
-                            height: 26.0,
-                          ),
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Ionicons.logo_ionic,
+                          color: Colors.black54,
+                          size: 26.0,
                         ),
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: SvgPicture.asset(
-                            this._profileData.icons[1],
-                            color: Colors.black54,
-                            width: 26.0,
-                            height: 26.0,
-                          ),
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Ionicons.logo_angular,
+                          color: Colors.black54,
+                          size: 26.0,
                         ),
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: SvgPicture.asset(
-                            this._profileData.icons[2],
-                            color: Colors.black54,
-                            width: 26.0,
-                            height: 26.0,
-                          ),
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Ionicons.logo_nodejs,
+                          color: Colors.black54,
+                          size: 26.0,
                         ),
-                      ),
+                      )
                     ],
                   ),
                 )

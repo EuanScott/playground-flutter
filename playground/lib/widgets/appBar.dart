@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:playground/pages/profile/profile.dart';
+
+import 'package:ionicons/ionicons.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColorPrimary = Colors.teal[400];
@@ -11,8 +14,14 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool isModal;
   final AppBar appBar;
+  final bool showBackButton;
 
-  BaseAppBar({Key key, this.title, this.isModal = false, this.appBar})
+  BaseAppBar(
+      {Key key,
+      this.title,
+      this.isModal = false,
+      this.appBar,
+      this.showBackButton = false})
       : super(key: key);
 
   @override
@@ -26,19 +35,29 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: Builder(
         builder: (BuildContext context) {
-          if (!isModal)
+          if (isModal)
             return IconButton(
-              icon: const Icon(Icons.menu),
+              icon: Icon(Ionicons.close_circle_outline),
+              iconSize: 28.0,
               onPressed: () {
-                Scaffold.of(context).openDrawer();
+                Navigator.pop(context);
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
-          else
+          else if (showBackButton)
             return IconButton(
-              icon: const Icon(Icons.close_outlined),
+              icon: Icon(Ionicons.chevron_back_outline),
               onPressed: () {
                 Navigator.pop(context);
+              },
+              // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          else
+            return IconButton(
+              icon: Icon(Ionicons.menu_outline),
+              iconSize: 28.0,
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
@@ -51,7 +70,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
         if (!isModal)
           IconButton(
             icon: Icon(
-              Icons.person,
+              Ionicons.person,
               color: this.isModal ? textColorSecondary : textColorPrimary,
             ),
             onPressed: () {

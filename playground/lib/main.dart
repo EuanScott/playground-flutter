@@ -31,6 +31,10 @@ class MyApp extends StatelessWidget {
             fontSize: 20.0,
             color: Colors.black,
           ),
+          bodyText2: TextStyle(
+            fontSize: 16.0,
+            color: Colors.black,
+          ),
         ),
       ),
       initialRoute: '/',

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:playground/pages/home/home.dart';
+import 'package:playground/pages/news/news.dart';
+
+import 'package:ionicons/ionicons.dart';
+
 class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,10 +25,23 @@ class NavDrawer extends StatelessWidget {
               ),
             ),
             DrawerItem(
-              Icons.home_outlined,
+              Ionicons.home_outline,
               'Home',
               () => {
-                Navigator.of(context).pop(),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),
+                )
+              },
+            ),
+            DrawerItem(
+              Ionicons.newspaper_outline,
+              'News',
+              () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HeroPage()),
+                )
               },
             ),
           ],
@@ -71,7 +89,7 @@ class DrawerItem extends StatelessWidget {
     return ListTile(
       leading: Icon(
         this.icon,
-        size: 32.0,
+        size: 28.0,
         color: Colors.teal[400],
       ),
       title: Text(

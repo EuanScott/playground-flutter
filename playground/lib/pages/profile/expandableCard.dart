@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 import 'package:expansion_card/expansion_card.dart';
-
 import 'package:playground/widgets/card.dart';
 
 class ExpandableCard extends StatelessWidget {
@@ -23,7 +23,7 @@ class ExpandableCard extends StatelessWidget {
           ),
         ),
         trailing: Icon(
-          Icons.add,
+          Ionicons.add_outline,
           color: Colors.teal[400],
         ),
         children: <Widget>[

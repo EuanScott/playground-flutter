@@ -7,21 +7,24 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 8.0,
-        right: 16.0,
-        bottom: 8.0,
-        left: 16.0,
-      ),
-      child: Card(
-        elevation: 8.0,
-        clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+    return GestureDetector(
+      child: Container(
+        padding: const EdgeInsets.only(
+          top: 8.0,
+          right: 16.0,
+          bottom: 8.0,
+          left: 16.0,
         ),
-        child: this.temp,
+        child: Card(
+          elevation: 8.0,
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: this.temp,
+        ),
       ),
+      onTap: () => print('Outer'),
     );
   }
 }

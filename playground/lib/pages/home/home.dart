@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ionicons/ionicons.dart';
 
 import 'package:playground/models/home.model.dart';
 
@@ -51,25 +52,7 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           Carousel(),
-          ElevatedButton(
-            onPressed: () {
-              final snackBar = SnackBar(
-                content: Text('Yay! A SnackBar!'),
-                backgroundColor: Colors.green,
-                margin: EdgeInsets.all(8.0),
-                behavior: SnackBarBehavior.floating,
-                action: SnackBarAction(
-                  label: 'Okay',
-                  textColor: Colors.white,
-                  onPressed: () {
-                    // Some code to undo the change.
-                  },
-                ),
-              );
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            },
-            child: Text('Show SnackBar'),
-          ),
+          // _presentSnackBar(),
         ],
       ),
     );
@@ -83,30 +66,21 @@ class Carousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 16.0),
-      child: CarouselWidget(),
-    );
-  }
-}
-
-class CarouselWidget extends StatelessWidget {
-  CarouselWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider(
-      options: CarouselOptions(
-        enlargeCenterPage: true,
-        pageSnapping: false,
-        enableInfiniteScroll: false,
-        height: 380.0,
+      child: CarouselSlider(
+        options: CarouselOptions(
+          enlargeCenterPage: true,
+          pageSnapping: false,
+          enableInfiniteScroll: false,
+          height: 380.0,
+        ),
+        items: _cardData.map((item) {
+          return Builder(
+            builder: (BuildContext context) {
+              return CardWidget(item);
+            },
+          );
+        }).toList(),
       ),
-      items: _cardData.map((item) {
-        return Builder(
-          builder: (BuildContext context) {
-            return CardWidget(item);
-          },
-        );
-      }).toList(),
     );
   }
 }
@@ -170,7 +144,7 @@ class CardWidget extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(right: 4.0),
                       child: Icon(
-                        Icons.location_on_outlined,
+                        Ionicons.location_outline,
                         color: Colors.teal,
                       ),
                     ),
@@ -190,3 +164,25 @@ class CardWidget extends StatelessWidget {
     );
   }
 }
+
+// _presentSnackbar() {
+//   ElevatedButton(
+//     onPressed: () {
+//       final snackBar = SnackBar(
+//         content: Text('Yay! A SnackBar!'),
+//         backgroundColor: Colors.green,
+//         margin: EdgeInsets.all(8.0),
+//         behavior: SnackBarBehavior.floating,
+//         action: SnackBarAction(
+//           label: 'Okay',
+//           textColor: Colors.white,
+//           onPressed: () {
+//             // Some code to undo the change.
+//           },
+//         ),
+//       );
+//       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+//     },
+//     child: Text('Show SnackBar'),
+//   );
+// }
