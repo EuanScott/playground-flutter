@@ -24,7 +24,6 @@ class CustomCard extends StatelessWidget {
           child: this.temp,
         ),
       ),
-      onTap: () => print('Outer'),
     );
   }
 }

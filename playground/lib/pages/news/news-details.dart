@@ -16,6 +16,8 @@ class NewsDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int index = news.index;
+
     return MaterialApp(
       home: Scaffold(
         drawer: NavDrawer(),
@@ -30,8 +32,49 @@ class NewsDetailsPage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Hero(
-                  tag: 'hero-rectangle',
-                  child: _blueRectangle(const Size(400, 400), context),
+                  tag: 'hero-$index',
+                  child:
+                      _customImage(const Size(400, 400), context, news.image),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                    top: 16.0,
+                    right: 16.0,
+                    left: 16.0,
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            SizedBox(height: 50.0),
+                            Container(
+                              padding: EdgeInsets.only(top: 12.0),
+                              alignment: Alignment.bottomLeft,
+                              child: Text(
+                                'Header',
+                                style: Theme.of(context).textTheme.headline1,
+                              ),
+                            ),
+                            Positioned(
+                              right: 8,
+                              child: ElevatedButton.icon(
+                                icon: Icon(Icons.close_outlined),
+                                label: Text("Close"),
+                                style: ElevatedButton.styleFrom(
+                                  primary: Color(0xFF227e8d), // background
+                                  onPrimary: Colors.white, // foreground
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.all(16.0),
@@ -48,13 +91,13 @@ class NewsDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget _blueRectangle(Size size, BuildContext context) {
+  Widget _customImage(Size size, BuildContext context, String image) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: size.height,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(this.news.image),
+          image: AssetImage(image),
           fit: BoxFit.fill,
         ),
       ),

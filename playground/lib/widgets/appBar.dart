@@ -50,7 +50,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           else
             return IconButton(

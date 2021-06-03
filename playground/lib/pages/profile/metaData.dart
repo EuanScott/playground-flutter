@@ -34,21 +34,21 @@ class ProfileData extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                Container(
                   padding: EdgeInsets.only(top: 8.0, left: 16.0),
                   child: Text(
                     this._profileData.name,
                     style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
-                Padding(
+                Container(
                   padding: EdgeInsets.only(top: 8.0, left: 16.0),
                   child: Text(
                     this._profileData.title,
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ),
-                Padding(
+                Container(
                   padding: const EdgeInsets.only(top: 8.0, left: 16.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
