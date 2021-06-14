@@ -1,9 +1,12 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
 import 'package:playground/models/profile.model.dart';
 
 import 'package:playground/widgets/card.dart';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ProfileData extends StatelessWidget {
   final _profileData = PersonalData(
@@ -36,16 +39,30 @@ class ProfileData extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.only(top: 8.0, left: 16.0),
-                  child: Text(
-                    this._profileData.name,
-                    style: Theme.of(context).textTheme.headline1,
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        this._profileData.name,
+                        textStyle: Theme.of(context).textTheme.headline6,
+                        speed: const Duration(milliseconds: 300),
+                      ),
+                    ],
+                    totalRepeatCount: 1,
+                    pause: const Duration(milliseconds: 1000),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.only(top: 8.0, left: 16.0),
-                  child: Text(
-                    this._profileData.title,
-                    style: Theme.of(context).textTheme.subtitle1,
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        this._profileData.title,
+                        textStyle: Theme.of(context).textTheme.subtitle1,
+                        speed: const Duration(milliseconds: 100),
+                      ),
+                    ],
+                    totalRepeatCount: 1,
+                    pause: const Duration(milliseconds: 1000),
                   ),
                 ),
                 Container(

@@ -13,7 +13,7 @@ class Profile extends StatelessWidget {
       drawer: NavDrawer(),
       appBar: BaseAppBar(
         title: 'Profile',
-        isModal: true,
+        isProfilePage: true,
         appBar: AppBar(),
       ),
       body: Column(

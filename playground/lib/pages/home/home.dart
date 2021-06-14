@@ -120,7 +120,7 @@ class CardWidget extends StatelessWidget {
                     Container(
                       child: Text(
                         this.item.title,
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                       padding: EdgeInsets.only(bottom: 4.0),
                       width: 300.0,

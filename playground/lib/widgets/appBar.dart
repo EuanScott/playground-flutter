@@ -12,14 +12,14 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color textColorSecondary = Colors.teal[400];
 
   final String title;
-  final bool isModal;
+  final bool isProfilePage;
   final AppBar appBar;
   final bool showBackButton;
 
   BaseAppBar(
       {Key key,
       this.title,
-      this.isModal = false,
+      this.isProfilePage = false,
       this.appBar,
       this.showBackButton = false})
       : super(key: key);
@@ -27,15 +27,9 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        title,
-        style: TextStyle(
-          color: this.isModal ? textColorSecondary : textColorPrimary,
-        ),
-      ),
       leading: Builder(
         builder: (BuildContext context) {
-          if (isModal)
+          if (isProfilePage)
             return IconButton(
               icon: Icon(Ionicons.close_circle_outline),
               iconSize: 28.0,
@@ -63,15 +57,22 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
             );
         },
       ),
-      iconTheme: IconThemeData(
-        color: this.isModal ? textColorSecondary : textColorPrimary,
+      title: Text(
+        title,
+        // TODO: Figure out a way of passing dynamic content into a default theme defined in main.dart
+        style: TextStyle(
+          color: this.isProfilePage ? textColorSecondary : textColorPrimary,
+          fontFamily: 'FiraCode',
+          fontSize: 20.0,
+          fontWeight: FontWeight.w500,
+        ),
       ),
       actions: <Widget>[
-        if (!isModal)
+        if (!isProfilePage)
           IconButton(
             icon: Icon(
               Ionicons.person,
-              color: this.isModal ? textColorSecondary : textColorPrimary,
+              color: this.isProfilePage ? textColorSecondary : textColorPrimary,
             ),
             onPressed: () {
               showCupertinoModalBottomSheet(
@@ -82,8 +83,13 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
           )
       ],
-      backgroundColor:
-          this.isModal ? backgroundColorSecondary : backgroundColorPrimary,
+      // Themeing of the TitleBar
+      iconTheme: IconThemeData(
+        color: this.isProfilePage ? textColorSecondary : textColorPrimary,
+      ),
+      backgroundColor: this.isProfilePage
+          ? backgroundColorSecondary
+          : backgroundColorPrimary,
     );
   }
 

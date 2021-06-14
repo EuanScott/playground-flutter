@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "animated_text_kit",
+      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/animated_text_kit-4.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0",
       "packageUri": "lib/",
@@ -40,12 +46,6 @@
     {
       "name": "collection",
       "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "cupertino_icons",
-      "rootUri": "file:///Users/euanscott/Development/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -176,7 +176,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-05-22T10:21:57.345559Z",
+  "generated": "2021-06-13T10:56:06.073268Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }

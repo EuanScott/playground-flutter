@@ -9,7 +9,7 @@ import 'package:playground/widgets/navDrawer.dart';
 
 import 'package:playground/models/news.model.dart';
 
-void main() => runApp(HeroPage());
+void main() => runApp(NewsPage());
 
 final List<News> news = [
   News(
@@ -32,27 +32,29 @@ final List<News> news = [
   ),
 ];
 
-class HeroPage extends StatelessWidget {
+/// TODO: Implement Future Builder
+/// https://github.com/entelect/incubator_flutter
+
+class NewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         drawer: NavDrawer(),
         appBar: BaseAppBar(
-          title: 'Hero Page',
+          title: 'News',
           appBar: AppBar(),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: news.map((item) {
-            final int index = item.index;
-
             return GestureDetector(
               onTap: () => ({
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => NewsDetailsPage(news: news[index]),
+                    builder: (context) =>
+                        NewsDetailsPage(news: news[item.index]),
                   ),
                 )
               }),
@@ -60,13 +62,14 @@ class HeroPage extends StatelessWidget {
                 children: [
                   CustomCard(
                     Hero(
-                      tag: 'hero-$index',
-                      child: _customImage(const Size(125, 125), item.image),
+                      child: _customImage(
+                        const Size(125, 125),
+                        item.image,
+                      ),
+                      tag: 'hero-${item.index}',
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(16.0),
-                    width: MediaQuery.of(context).size.width * 0.5,
                     child: new Column(
                       children: <Widget>[
                         Text(
@@ -75,6 +78,8 @@ class HeroPage extends StatelessWidget {
                         )
                       ],
                     ),
+                    padding: const EdgeInsets.all(16.0),
+                    width: MediaQuery.of(context).size.width * 0.5,
                   ),
                 ],
               ),

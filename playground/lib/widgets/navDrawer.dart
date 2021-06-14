@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 
 import 'package:playground/pages/home/home.dart';
 import 'package:playground/pages/news/news.dart';
+import 'package:playground/pages/settings/settings.dart';
 
 import 'package:ionicons/ionicons.dart';
+
+///TODO: Update the Side Menu to use a loop, rather than have everything hardcoded
+// final List<NavData> _drawerItem = [
+//   NavData(
+//     icon: Ionicons.home_outline,
+//     title: "Home",
+//   ),
+//   NavData(
+//     icon: Ionicons.newspaper_outline,
+//     title: 'News',
+//   )
+// ];
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -40,7 +53,17 @@ class NavDrawer extends StatelessWidget {
               () => {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HeroPage()),
+                  MaterialPageRoute(builder: (context) => NewsPage()),
+                )
+              },
+            ),
+            DrawerItem(
+              Ionicons.settings_outline,
+              'Settings',
+              () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
                 )
               },
             ),
@@ -94,7 +117,7 @@ class DrawerItem extends StatelessWidget {
       ),
       title: Text(
         this.title,
-        style: Theme.of(context).textTheme.headline1,
+        style: Theme.of(context).textTheme.headline6,
       ),
       onTap: this.onTap,
     );
