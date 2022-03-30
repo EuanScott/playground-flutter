@@ -1,14 +1,13 @@
+import 'package:expansion_card/expansion_card.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-
-import 'package:expansion_card/expansion_card.dart';
 import 'package:playground/widgets/card.dart';
 
 class ExpandableCard extends StatelessWidget {
-  final String title;
-  final String body;
+  final String _title;
+  final String _body;
 
-  ExpandableCard(this.title, this.body);
+  ExpandableCard(this._title, this._body);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class ExpandableCard extends StatelessWidget {
       ExpansionCard(
         margin: EdgeInsets.zero,
         title: Text(
-          this.title,
+          _title,
           style: TextStyle(
             fontSize: 24.0,
             color: Colors.black,
@@ -28,13 +27,15 @@ class ExpandableCard extends StatelessWidget {
         ),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.only(
+              top: 0,
+              right: 16.0,
+              bottom: 8.0,
+              left: 16.0,
+            ),
             child: Text(
-              this.body,
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.black,
-              ),
+              _body,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
           ),
         ],

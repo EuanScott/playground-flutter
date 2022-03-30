@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:ionicons/ionicons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:playground/pages/profile/profile.dart';
-
-import 'package:ionicons/ionicons.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColorPrimary = Colors.teal[400];
@@ -61,7 +59,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         // TODO: Figure out a way of passing dynamic content into a default theme defined in main.dart
         style: TextStyle(
-          color: this.isProfilePage ? textColorSecondary : textColorPrimary,
+          color: isProfilePage ? textColorSecondary : textColorPrimary,
           fontFamily: 'FiraCode',
           fontSize: 20.0,
           fontWeight: FontWeight.w500,
@@ -72,7 +70,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
           IconButton(
             icon: Icon(
               Ionicons.person,
-              color: this.isProfilePage ? textColorSecondary : textColorPrimary,
+              color: isProfilePage ? textColorSecondary : textColorPrimary,
             ),
             onPressed: () {
               showCupertinoModalBottomSheet(
@@ -85,11 +83,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
       // Themeing of the TitleBar
       iconTheme: IconThemeData(
-        color: this.isProfilePage ? textColorSecondary : textColorPrimary,
+        color: isProfilePage ? textColorSecondary : textColorPrimary,
       ),
-      backgroundColor: this.isProfilePage
-          ? backgroundColorSecondary
-          : backgroundColorPrimary,
+      backgroundColor:
+          isProfilePage ? backgroundColorSecondary : backgroundColorPrimary,
     );
   }
 

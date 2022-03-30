@@ -1,19 +1,15 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-
 import 'package:playground/models/profile.model.dart';
-
 import 'package:playground/widgets/card.dart';
-
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ProfileData extends StatelessWidget {
   final _profileData = PersonalData(
     avatar:
         'https://avatars.githubusercontent.com/u/57098959?s=400&u=c515b9d4901797a47326e580797dc8b9ca01172b&v=4',
     name: 'Euan Scott',
-    title: 'Full-Stack Mobile Engineer',
+    title: 'Software Engineer',
     icons: ['assets/ionic.svg', 'assets/angular.svg', 'assets/nodejs.svg'],
   );
 
@@ -29,10 +25,13 @@ class ProfileData extends StatelessWidget {
           children: <Widget>[
             CircleAvatar(
               backgroundColor: Colors.white,
-              backgroundImage: NetworkImage(
-                this._profileData.avatar,
+              child: ClipOval(
+                child: FadeInImage.assetNetwork(
+                  placeholder: 'assets/loader.gif',
+                  image: this._profileData.avatar,
+                ),
               ),
-              radius: 64.0,
+              radius: 56.0,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,6 +66,7 @@ class ProfileData extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.only(top: 8.0, left: 16.0),
+                  // TODO: Update the tech stack icons => Flutter, Android, Kotlin, Spring(?)
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [

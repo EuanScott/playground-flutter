@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(
             color: Colors.grey,
             fontFamily: 'Nunito',
-            fontSize: 16.0,
+            fontSize: 12.0,
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.w400,
           ),

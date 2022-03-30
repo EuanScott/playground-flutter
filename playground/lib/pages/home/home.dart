@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       drawer: NavDrawer(),
       appBar: BaseAppBar(
-        title: 'Page Name',
+        title: 'Home',
         appBar: AppBar(),
       ),
       body: Column(
@@ -107,12 +107,11 @@ class CardWidget extends StatelessWidget {
               fit: BoxFit.none,
               placeholder: 'assets/loader.gif', //kTransparentImage,
               image: this.item.image,
-            ), //Image.network(this.item.image),
+            ),
           ),
           Container(
             alignment: Alignment.topLeft,
             padding: EdgeInsets.all(10.0),
-            width: 350.0,
             child: Column(
               children: <Widget>[
                 Row(
@@ -122,8 +121,7 @@ class CardWidget extends StatelessWidget {
                         this.item.title,
                         style: Theme.of(context).textTheme.headline6,
                       ),
-                      padding: EdgeInsets.only(bottom: 4.0),
-                      width: 300.0,
+                      padding: EdgeInsets.only(bottom: 4.0)
                     ),
                   ],
                 ),
@@ -134,8 +132,7 @@ class CardWidget extends StatelessWidget {
                         this.item.subTitle,
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
-                      padding: EdgeInsets.only(bottom: 8.0),
-                      width: 300.0,
+                      padding: EdgeInsets.only(bottom: 8.0)
                     ),
                   ],
                 ),
