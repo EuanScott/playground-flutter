@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_lorem/flutter_lorem.dart';
 
-import 'package:playground/widgets/appBar.dart';
-import 'package:playground/widgets/navDrawer.dart';
+import 'package:playground/widgets/app_bar.widget.dart';
+import 'package:playground/widgets/nav_drawer.widget.dart';
 
 import 'package:playground/models/news.model.dart';
 

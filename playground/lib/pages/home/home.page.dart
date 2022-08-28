@@ -4,8 +4,8 @@ import 'package:ionicons/ionicons.dart';
 
 import 'package:playground/models/home.model.dart';
 
-import 'package:playground/widgets/appBar.dart';
-import 'package:playground/widgets/navDrawer.dart';
+import 'package:playground/widgets/app_bar.widget.dart';
+import 'package:playground/widgets/nav_drawer.widget.dart';
 
 final List<CardData> _cardData = [
   CardData(
@@ -130,7 +130,7 @@ class CardWidget extends StatelessWidget {
                     Container(
                       child: Text(
                         this.item.subTitle,
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.subtitle2
                       ),
                       padding: EdgeInsets.only(bottom: 8.0)
                     ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
-import 'package:playground/pages/news/news-details.dart';
+import 'package:playground/pages/news/news_details.page.dart';
 
-import 'package:playground/widgets/appBar.dart';
-import 'package:playground/widgets/card.dart';
-import 'package:playground/widgets/navDrawer.dart';
+import 'package:playground/widgets/app_bar.widget.dart';
+import 'package:playground/widgets/card.widget.dart';
+import 'package:playground/widgets/nav_drawer.widget.dart';
 
 import 'package:playground/models/news.model.dart';
 
@@ -13,22 +13,22 @@ void main() => runApp(NewsPage());
 
 final List<News> news = [
   News(
-    'assets/background.jpg',
-    'A description of what needs to be done for Todo 1',
-    'Page No. 0',
-    0,
+    image: 'assets/background.jpg',
+    header: 'A description of what needs to be done for Todo 1',
+    pageName: 'Page No. 0',
+    index: 0,
   ),
   News(
-    'assets/stars.gif',
-    'A description of what needs to be done for Todo 1',
-    'Page No. 1',
-    1,
+    image: 'assets/stars.gif',
+    header: 'A description of what needs to be done for Todo 1',
+    pageName: 'Page No. 1',
+    index: 1,
   ),
   News(
-    'assets/loader.gif',
-    'A description of what needs to be done for Todo 1',
-    'Page No. 2',
-    2,
+    image: 'assets/loader.gif',
+    header: 'A description of what needs to be done for Todo 1',
+    pageName: 'Page No. 2',
+    index: 2,
   ),
 ];
 
@@ -44,6 +44,7 @@ class NewsPage extends StatelessWidget {
         appBar: BaseAppBar(
           title: 'News',
           appBar: AppBar(),
+          showBackButton: true,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +62,7 @@ class NewsPage extends StatelessWidget {
               child: Row(
                 children: [
                   CustomCard(
-                    Hero(
+                    child: Hero(
                       child: _customImage(
                         const Size(125, 125),
                         item.image,

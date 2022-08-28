@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class NavData {
+class NavDrawer {
+  NavDrawer({this.icon, this.title, this.onTap});
+
   IconData icon;
   String title;
   dynamic onTap;
-
-  NavData({this.icon, this.title, this.onTap});
 }

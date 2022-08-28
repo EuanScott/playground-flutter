@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:playground/pages/profile/profile.dart';
+import 'package:playground/pages/profile/profile.page.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColorPrimary = Colors.teal[400];
@@ -14,13 +14,12 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
   final bool showBackButton;
 
-  BaseAppBar(
-      {Key key,
-      this.title,
-      this.isProfilePage = false,
-      this.appBar,
-      this.showBackButton = false})
-      : super(key: key);
+  BaseAppBar({
+    this.title,
+    this.isProfilePage = false,
+    this.appBar,
+    this.showBackButton = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +38,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
           else if (showBackButton)
             return IconButton(
               icon: Icon(Ionicons.chevron_back_outline),
+              iconSize: 28.0,
               onPressed: () {
                 Navigator.pop(context);
               },

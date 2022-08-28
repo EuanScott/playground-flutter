@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:playground/pages/home/home.dart';
-import 'package:playground/pages/news/news.dart';
-import 'package:playground/pages/settings/settings.dart';
+import 'package:playground/pages/home/home.page.dart';
+import 'package:playground/pages/news/news.page.dart';
+import 'package:playground/pages/settings/settings.page.dart';
 
 import 'package:ionicons/ionicons.dart';
 
@@ -18,6 +18,7 @@ import 'package:ionicons/ionicons.dart';
 //   )
 // ];
 
+// TODO: Sort out navigation in my app
 class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
